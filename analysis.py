@@ -97,7 +97,7 @@ for key,value in dict_domain.items():
     rmsf_dmd[key] = RMSF(selection, verbose=True).run()
     
 for key,value in dict_domain.items():
-    u = mda.Universe(fold+topology,fold+trajectory)
+    u = mda.Universe(os.path.join(fold,topology),os.path.join(fold,trajectory))
     #RMSD
     aligner = align.AlignTraj(u, u, select=value, in_memory=True)
     aligner.run()
